@@ -1,0 +1,148 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usetheme{Copenhagen}
+\usecolortheme{dolphin}
+
+\title{UNDERSTANDING FERMAT'S LITTLE THEOREM}
+\author{Sailee Desai}
+\institute{Parvatibai Chowgule College of Arts \& Science}
+\date{29 August 2020}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{Introduction}
+\begin{itemize}
+    \item <1-> Fermat's Little theorem is credited to \alert{Pierre de Fermat}.\\
+    \item <2-> It was proven by \alert{Euler}, who generalized the theorem significantly.\\
+    \item <3-> It is highly useful in Number Theory for simplifying the computation of powers of integers modulo prime numbers; especially when the powers are too big.\\
+    \item <4-> It is a special case of Euler's theorem \& is important in applications of elementary Number Theory including primality testing \& public key cryptography
+\end{itemize}
+\end{frame}
+
+\section{Theorem Statement}
+\begin{frame}{Theorem Statement}
+\begin{alertblock}{Fermat's Little Theorem states that: }If $p$ is prime \& $p$ $\nmid$ $a$ \hspace{2pt}then $a^{p-1}$ $\equiv$ 1 (\textrm{mod}\ $p$) ,where $a\in$ $\mathbb{Z}$\medskip\\
+\end{alertblock}
+\end{frame}
+
+\section{Outline of the proof}
+\begin{frame}{Outline of the proof using example:}
+The proof is based on the following idea:\\ \pause
+Consider any prime number $p$, say 5\\ \pause
+Now, we write down all the numbers between 1 \& $p-1$\\
+i.e. 1,2,3,4\\ \pause
+Next, we take any random integer $a$ which is not divisible by $p$ \& multiply it to 1,2,...$p-1$\\ \pause
+i.e. $a, 2a, 3a, 4a$\\ \pause
+None of the numbers in the above list are divisible by 5 since none of the numbers 1,2,3,4 are divisible by 5 (since, they are less than 5) \& also, $a$ is not divisible by 5\\ \pause
+Now, we investigate the remainders that we could possibly get, if we divided the numbers in the above list by $p=5$\\ \pause
+Suppose if we get the same remainders when 2a \& 3a are divided by 5, then their difference must also be divisible by 5\\
+\end{frame}
+
+\begin{frame}
+i.e if 2a $\equiv$ 3a (\textrm{mod}\ $5$) then,\\ \pause
+$|2a-3a|$ must be divisible by 5, which is is not possible since $5 \nmid a$ \& $|2-3|<5$\\ \pause
+Thus, when we divide the list $a, 2a, 3a, 4a$ by 5, we get all different remainders \& this list is congruent modulo 5 to the integers 1,2,3,4 in some order\\ \pause
+i.e. a.2a.3a.4a $\equiv$ 1.2.3.4 (\textrm{mod}\ $5$)\\ \pause
+i.e. $4!(a^4) \equiv 4! (\textrm{mod}\ $5$)$\\ \pause
+i.e. $a^4 \equiv 1 (\textrm{mod}\ $5$)$\\ \pause
+i.e. $a^{5-1} \equiv 1 (\textrm{mod}\ $5$)$\\ \pause
+Let us look at a generalised form of this proof in the following slides.
+\end{frame}
+
+\section{Theorem Proof}
+\begin{frame}{Theorem proof:}\pause
+Every integer is congruent to one of 0,1,2,..., $p-1$ (\textrm{mod}\ $p$)\\ \pause
+We do not consider the integers congruent to 0 (\textrm{mod}\ $p$) since, they will be all multiples of $p$ \& here we have assumed $p \nmid a$\\ \pause
+Consider the $1^{st}$ $(p-1)$ multiples of $a$\\ \pause
+i.e. $a,2a,3a,\ldots,(p-1)a$ \medskip\\ \pause
+\alert{Claim 1: None of the above integers are congruent to 0 modular $p$}\\ \pause
+Suppose $ra \equiv 0 (\textrm{mod}\ p)$ where $1\leq r \leq p-1$\\ \pause
+This implies $p \mid ra$, which is impossible since $p \nmid a$ \& $r<p$\\ \pause
+\alert{Claim 2: None of the above integers are congruent to each other modulo $p$} \medskip\\ \pause
+Now, consider any 2 numbers r \& s such that $1\leq r$ \textless $s \leq p-1$\\
+\end{frame}
+
+\begin{frame}
+Suppose that $ra \equiv sa$ (\textrm{mod}\ $p$)\\ \pause
+From the theorem statement, we know that $p \nmid a$\\ \pause
+Thus, g.c.d$(p,a)$=1 \\ \pause
+Therefore, by cancelling $a$, we get\\ \pause
+$r \equiv s$ (\textrm{mod}\ $p$)\\ \pause
+which implies $p\mid(r-s)$\\ \pause
+This is a contradiction since $|r-s|$ \textless $p$\\ \pause
+Thus, $ra \not\equiv sa$ (\textrm{mod}\ $p$)\\ \pause
+Now, $a,2a,3a,\ldots,(p-1)a$ are congruent modulo $p$ to the integers $1,2,3,\ldots,p-1$ in some order\\ \pause
+i.e. $a.2a.3a \ldots (p-1)a \equiv 1.2.3 \ldots p-1$ (\textrm{mod}\ $p$)\\ \pause
+Here, we can see that, on the R.H.S we have $1.2.3 \ldots p-1$ which is indeed $(p-1)!$ \& on the L.H.S we have "$a$" multiplied to itself $p-1$ times along with $(p-1)!$. Therefore, we get\\
+\end{frame}
+
+\begin{frame}
+$a^{p-1} (p-1)!$ $\equiv$ $(p-1)!$ (\textrm{mod}\ $p$)\\ \pause
+Now, note that all the numbers multiplied in $(p-1)!$ are less than p\\ \pause
+Thus, $p \nmid (p-1)!$ implying g.c.d $\big(p, (p-1)!\big)=1$\\ \pause
+Therefore, by cancelling $(p-1)!$, we get, \\ \pause
+$a^{p-1}$ $\equiv$ 1 (\textrm{mod}\ $p$)\\ \pause
+Hence proved!\\
+\end{frame}
+
+\section{Examples}
+\begin{frame}{Problems using Fermat's Little Theorem:}
+Fermat's little theorem helps us to find the remainder of enormously large numbers, when divided by a prime number, in the following way:
+\end{frame}
+
+\begin{frame}
+\begin{examples}
+\begin{itemize}
+    \item $2^{50} (\textrm{mod}\ $17$)$\\ \pause
+    $2^{50} = 2^{16.3 + 2} = (2^{16})^3.2^2$\\ \pause
+    Now, 17 is a prime \& $17 \nmid 2$\\
+     Using the theorem, we can say $2^{16} = 2^{17-1} \equiv 1 (\textrm{mod}\ $17$)$\\ \pause
+     Thus, $2^{50} \equiv (1)^3.4 (\textrm{mod}\ $17$) \equiv 4 (\textrm{mod}\ $17$)$\\ \pause
+     Hence, the remainder when we divide $2^{50}$ by 17 is 4\\
+\end{itemize}
+\end{examples}
+\end{frame}
+
+\begin{frame}
+\begin{examples}
+\begin{itemize}
+    \item $3^{100000} (\textrm{mod}\ $53$)$\\ \pause
+    $3^{100000} = 3^{52.1923 + 4} = (3^{53})^{1923}.3^4$\\ \pause
+    Now, 53 is a prime \& $53 \nmid 3$\\
+     Using the theorem, we can say $3^{52} = 3^{53-1} \equiv 1 (\textrm{mod}\ $53$)$\\ \pause
+     Thus, $3^{100000} \equiv (1)^{1923}.81 (\textrm{mod}\ $53$) \equiv 28 (\textrm{mod}\ $53$)$\\ \pause
+     Hence, the remainder when we divide $3^{100000}$ by 53 is 28\\
+\end{itemize}
+\end{examples}
+\end{frame}
+     
+\begin{frame}
+\begin{examples}
+\begin{itemize}
+    \item $4^{532} (\textrm{mod}\ $11$)$\\ \pause
+    $4^{532} = 4^{10.53 + 2} = (4^{10})^{53}.4^2$\\ \pause
+    Now, 11 is a prime \& $11 \nmid 4$\\
+     Using the theorem, we can say $4^{10} = 4^{11-1} \equiv 1 (\textrm{mod}\ $11$)$\\ \pause
+     Thus, $4^{532} \equiv (1)^{53}.16 (\textrm{mod}\ $11$) \equiv 5 (\textrm{mod}\ $11$)$\\ \pause
+     Hence, the remainder when we divide $4^{532}$ by 11 is 5\\
+     
+\end{itemize}
+\end{examples}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+    \textcolor{orange}{THANK \pause YOU!}
+\end{center}
+\end{frame}
+\end{document}
